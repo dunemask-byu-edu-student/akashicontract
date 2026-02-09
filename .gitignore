@@ -1,0 +1,12 @@
+node_modules
+build
+dist
+.DS_Store
+.env
+.env.*
+.firebase
+
+.idea
+*.cache
+server/src/atlas
+web/src/atlas

@@ -1,0 +1,30 @@
+{
+    "name": "akashicontract-web",
+    "version": "0.0.2",
+    "description": "Realtime, Language Agnostic, Data Schemas & Structures",
+    "private": true,
+    "scripts": {
+        "start": "PORT=52000 NODE_OPTIONS=--enable-source-maps node dist/main.js",
+        "start:dev": "concurrently -k \"cd server && LAUNCHBOARD_DEV_PORT=52025 npm run start:dev\" \"cd web && LAUNCHBOARD_VITE_DEV_PORT=52000 LAUNCHBOARD_VITE_BACKEND_URL=http://localhost:52025 npm run start:dev\" -n s,v -c cyan,yellow",
+        "postinstall": "make postinstall",
+        "build": "make build",
+        "clean": "make clean",
+        "tsc": "make tsc",
+        "format": "prettier -w web/src server/src web/vite.config.ts",
+        "format:check": "prettier -c web/src server/src web/vite.config.ts"
+    },
+    "keywords": [
+        "AkashiContract"
+    ],
+    "author": "Dunemask",
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "concurrently": "^9.2.0",
+        "newrelic": "^13.2.1",
+        "prettier": "^3.6.2",
+        "yarn": "^1.22.22"
+    },
+    "dependencies": {
+        "yup": "^1.7.1"
+    }
+}

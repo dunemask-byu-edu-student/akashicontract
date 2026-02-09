@@ -1,0 +1,30 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+model ScheduledTask {
+    id        String   @id @unique @default(dbgenerated("pfx_id('sch_tsk'::text)"))
+    queue     String
+    kind      String?
+    data      Json
+    jobId     String?
+    appId     String?
+    executeAt DateTime @db.Timestamptz(6)
+    createdAt DateTime @default(now()) @db.Timestamptz(6)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+}
+
+model WorkingState {
+    id         String   @id @default(dbgenerated("pfx_id('wrk_state'::text)"))
+    userId     String
+    branchName String
+    dataType   String // "localizations" | "errors" | etc.
+    data       Json
+    updatedAt  DateTime @default(now()) @updatedAt
+}
+
+

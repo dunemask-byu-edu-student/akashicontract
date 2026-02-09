@@ -1,0 +1,18 @@
+services:
+  akashicontract:
+    env_file:
+    - path: ./.env # Note that the envars will automatically be setup if you include the .env
+      required: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: akashicontract:master
+    restart: always
+    ports: ["52000:52000"]
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    environment:
+      INFISICAL_PROJECT_ID: ${INFISICAL_PROJECT_ID}
+      INFISICAL_CLIENT_ID: ${INFISICAL_CLIENT_ID}
+      INFISICAL_CLIENT_SECRET: ${INFISICAL_CLIENT_SECRET}
+      INFISICAL_SECRET_ENV: ${INFISICAL_SECRET_ENV}
+    container_name: akashicontract

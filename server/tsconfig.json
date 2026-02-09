@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2022",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "paths": {
+      // Atlas aliases
+      "@atlas/scaffold/*": ["./src/atlas/scaffold/*"],
+      "@atlas/enums": ["./src/atlas/enums/index.ts"],
+      "@atlas/contracts": ["./src/atlas/contracts/index.ts"],
+      // Core Services
+      "@akc/config": ["./src/configs/app.config.ts"],
+      "@akc/logging": ["./src/util/logger.ts"],
+      "@akc/postgres": ["./src/modules/common/postgres/index.ts"],
+      "@akc/firebase/documents": ["./src/modules/common/firebase/documents.index.ts"],
+      "@akc/firebase": ["./src/modules/common/firebase/index.ts"],
+      "@akc/mail": ["./src/modules/common/mail/index.ts"],
+      "@akc/sms": ["./src/modules/common/sms/index.ts"],
+      "@akc/slack": ["./src/modules/common/slack/index.ts"],
+      "@akc/crypto": ["./src/modules/common/crypto/index.ts"],
+      "@akc/drachma": ["./src/modules/common/drachma/index.ts"],
+      "@akc/bullmq": ["./src/modules/common/bullmq/index.ts"],
+      "@akc/scheduler": ["./src/modules/common/scheduler/index.ts"],
+      // Stripe
+      "@akc/stripe": ["./src/modules/commerce/stripe/index.ts"],
+      // Util
+      "@akc/nest-extras": ["./src/util/nest-extras/index.ts"],
+      "@akc/util": ["./src/util/index.ts"],
+      // Module Breakdowns
+      "@akc/core/*": ["./src/modules/core/*"],
+      "@akc/app/*": ["./src/modules/app/*"],
+      "@akc/shared/*": ["./src/shared/*"],
+      "@akc/distribution/*": ["./src/modules/distribution/*"],
+      "@akc/releases": ["./src/modules/distribution/release/*"],
+      "@akc/releases/config": ["./src/modules/distribution/release/configuration/index.ts"],
+      "@akc/releases/lifecycle": ["./src/modules/distribution/release/lifecycle/index.ts"],
+      "@akc/modules/*": ["./src/modules/*"]
+    }
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  }
+}

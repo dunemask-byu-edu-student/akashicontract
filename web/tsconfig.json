@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* Vite Compile Options */
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+    "paths": {
+      /* Atlas */
+      "@atlas/scaffold/*": ["./src/atlas/scaffold/*"],
+      "@atlas/enums": ["./src/atlas/enums/index.ts"],
+      "@atlas/contracts": ["./src/atlas/contracts/index.ts"],
+      /* Vite */
+      "@akc/ui/components/*": ["./src/components/*"],
+      "@akc/ui/ctx/*": ["./src/ctx/*"],
+      "@akc/parser/*": ["./src/parser/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  }
+}

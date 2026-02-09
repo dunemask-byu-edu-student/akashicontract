@@ -1,0 +1,30 @@
+html {
+  overflow: hidden;
+  font-family: "Noto Sans";
+}
+
+/* ===== Firefox ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--chakra-colors-brand-highlight) var(--chakra-colors-brand-bg); /* thumb | track */
+}
+
+/* ===== Chrome, Edge, Safari ===== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--chakra-colors-brand-surface-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--chakra-colors-brand-surface-darker);
+  border-radius: 999px;
+  border: 2px solid var(--chakra-colors-brand-surface-darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--chakra-colors-brand-highlight);
+}

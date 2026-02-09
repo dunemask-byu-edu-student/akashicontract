@@ -1,0 +1,20 @@
+printWidth: 120
+semi: true
+singleQuote: false
+trailingComma: all
+bracketSpacing: true
+arrowParens: always
+requirePragma: false
+insertPragma: false
+
+overrides:
+  - files: 
+    - lib/router/ClientErrors.ts
+    - lib/router/routes/*.ts
+    options:
+      printWidth: 250
+  - files: 
+    - src/components/app-workflows/ios/IosWorkflow.tsx
+    - src/components/app-workflows/android/AndroidWorkflow.tsx
+    options:
+      printWidth: 150
