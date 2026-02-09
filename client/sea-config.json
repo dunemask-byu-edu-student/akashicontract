@@ -1,0 +1,10 @@
+{
+    "main": "build/client.bundle.cjs",
+    "output": "build/client.blob",
+    "disableExperimentalSEAWarning": true,
+    "useSnapshot": false,
+    "useCodeCache": false,
+    "execArgv": [],
+    "execArgvExtension": "env",
+    "assets": {}
+}

@@ -1,0 +1,32 @@
+{
+  "name": "akashicontract-client",
+  "version": "0.0.1",
+  "author": "Dunemask",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "test": "jest",
+    "build:binary": "./scripts/build-binary.sh",
+    "format": "prettier -w src"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.0.8",
+    "esbuild": "^0.27.2",
+    "jest": "^30.2.0",
+    "postject": "^1.0.0-alpha.6",
+    "prettier": "^3.7.4",
+    "rolldown": "^1.0.0-beta.59",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "simple-git": "^3.30.0",
+    "yaml": "^2.8.2",
+    "yup": "^1.7.1"
+  }
+}

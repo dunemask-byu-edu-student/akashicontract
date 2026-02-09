@@ -1,0 +1,6 @@
+recordInstance: http://127.0.0.1:52000
+recordRef: draft/cookie
+l10nCodes:
+  - en
+l10nPaths:
+  - "*"

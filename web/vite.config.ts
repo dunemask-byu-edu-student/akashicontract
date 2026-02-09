@@ -2,9 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-const { LAUNCHBOARD_VITE_BACKEND_URL, LAUNCHBOARD_VITE_DEV_PORT } = process.env;
-const backendUrl = LAUNCHBOARD_VITE_BACKEND_URL ?? "http://localhost:52025";
-const vitePort = LAUNCHBOARD_VITE_DEV_PORT ?? 52000;
+const { AKC_VITE_BACKEND_URL, AKC_VITE_DEV_PORT } = process.env;
+const backendUrl = AKC_VITE_BACKEND_URL ?? "http://localhost:52025";
+const vitePort = AKC_VITE_DEV_PORT ?? 52000;
 
 export default () => {
   return defineConfig({
@@ -19,7 +19,7 @@ export default () => {
         "/healthz": backendUrl,
       },
       hmr: {
-        protocol: process.env.LAUNCHBOARD_VITE_DEV_PROTOCOL,
+        protocol: process.env.AKC_VITE_DEV_PROTOCOL,
       },
     },
     build: {

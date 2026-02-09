@@ -6,6 +6,7 @@ ATLAS_DIR := $(PROJECT_ROOT)/atlas
 DIST_DIR := $(PROJECT_ROOT)/dist
 SERVER_DIR := $(PROJECT_ROOT)/server
 WEB_DIR := $(PROJECT_ROOT)/web
+CLIENT_DIR := $(PROJECT_ROOT)/client
 
 .PHONY: build clean build-server build-web tsc install postinstall build-atlas
 
@@ -19,8 +20,10 @@ build-atlas:
 	@echo "Bulding atlas..."
 	@rm -rf $(SERVER_DIR)/src/atlas
 	@rm -rf $(WEB_DIR)/src/atlas
+	@rm -rf $(CLIENT_DIR)/src/atlas
 	@cp -R $(ATLAS_DIR) $(SERVER_DIR)/src
 	@cp -R $(ATLAS_DIR) $(WEB_DIR)/src
+	@cp -R $(ATLAS_DIR) $(CLIENT_DIR)/src
 
 build-server:
 	@echo "Building SERVER..."

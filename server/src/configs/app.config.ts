@@ -33,7 +33,3 @@ export default CONFIG;
 
 if (missingEnvars.length > 0 && ENV.APPLICATION_ENV !== "production")
   throw Error(`Missing Envars ${JSON.stringify(missingEnvars, null, 2)}`);
-if (missingEnvars.length > 0)
-  jsonPost("https://hooks.slack.com/services/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", {
-    text: `LAUNCHBOARD MISSING ENVARS!\n${missingEnvars.map((envar) => `\`${envar}\``).join("\n")}`,
-  });

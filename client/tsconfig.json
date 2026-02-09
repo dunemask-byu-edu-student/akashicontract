@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "ESNext",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["node", "@types/jest"],
+    "paths": {
+      // Atlas aliases
+      "@atlas/scaffold/*": ["./src/atlas/scaffold/*"],
+      "@atlas/enums": ["./src/atlas/enums/index.ts"],
+      "@atlas/contracts": ["./src/atlas/contracts/index.ts"],
+      // Client Aliass
+      "@utils/*": ["./src/utils/*"],
+      "@cli/*": ["./src/cli/*"],
+      "@config": ["./src/config.ts"]
+    },
+    "outDir": "build/client"
+  },
+  "exclude": ["node_modules"],
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  }
+}
