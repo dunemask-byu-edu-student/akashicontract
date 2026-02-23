@@ -1,15 +1,18 @@
 // API Models for Contracts
 
-export interface ContractRequest {
+export interface UpdateContractRequest {
   userId: string;
-  branchName: string;
   dataType: string;
   data: any;
 }
 
+export interface GetContractRequest {
+    branchName: string;
+    dataType: string;
+}
+
 export interface ContractResponse {
   id: string;
-  userId: string;
   branchName: string;
   dataType: string;
   data: any;
