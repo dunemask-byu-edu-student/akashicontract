@@ -9,6 +9,7 @@ import { VitalsModule } from "@akc/core/vitals/vitals.module";
 import { CryptoModule } from "@akc/crypto";
 
 // App Modules
+import { ContractsModule } from "./modules/core/contracts/contracts.module";
 
 // Modules
 import { BullMQModule } from "@akc/bullmq";
@@ -31,6 +32,8 @@ import { ReactModule } from "@akc/core/react/react.module";
     VitalsModule,
 
     // Modules
+    ContractsModule,
+    
     // Distribution Modules
     ReactModule, // Include this at the bottom as it handles redirects from root
   ],
