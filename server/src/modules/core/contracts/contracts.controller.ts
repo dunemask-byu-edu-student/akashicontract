@@ -33,17 +33,17 @@ export class ContractsController {
     return await this.contractsService.createContract(body);
   }
 
-  @Put()
+  @Put(':id')
   async updateContract(
     @Body() body: ContractRequest,
-    @Query('id') id: string,
+    @Param('id') id: string,
   ): Promise<Contract> {
     return await this.contractsService.updateContract(body, id);
   }
 
-  @Delete()
+  @Delete(':id')
   async deleteContract(
-    @Query('id') id: string,
+    @Param('id') id: string,
   ): Promise<void> {
     return await this.contractsService.deleteContract(id);
   }
