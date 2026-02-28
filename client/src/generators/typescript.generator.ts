@@ -17,7 +17,7 @@ export class TypescriptGenerator extends ContractGenerator {
     const fileLines: string[] = [];
     fileLines.push(`export interface ${definition.name} {`);
     for (const [key, atrType] of Object.entries(definition.attributes))
-      fileLines.push(`  ${key}: ${conversionTable[atrType]}`);
+      fileLines.push(`  ${key}: ${conversionTable[atrType]};`);
     fileLines.push(`}`);
     return { filename: this.getFilename(definition), fileData: fileLines.join("\n") };
   }
