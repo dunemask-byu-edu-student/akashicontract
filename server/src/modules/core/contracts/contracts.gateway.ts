@@ -14,7 +14,7 @@ export class ContractsGateway {
   }
 
   sendContractSet(contract: Contract) {
-    this.server.emit("contract.set", { id: contract.id, data: contract });
+    this.server.emit("contract.set", { data: contract });
   }
 
   sendContractDelete(id: string) {
