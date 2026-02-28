@@ -11,14 +11,14 @@ export class ContractsService {
   ) {}
 
   async getContract(id: string): Promise<Contract | null> {
-    const contractResponse = await this.postgresService.contracts.findUniqueOrThrow({ where: { id } });
+    const contractResponse = await this.postgresService.contract.findUniqueOrThrow({ where: { id } });
     if (!this.isStringMap(contractResponse.attributes)) throw new BadRequestException("Invalid contract attributes format");
     return { ...contractResponse, attributes: contractResponse.attributes };
   }
 
   async getContracts(userId: string, page: number, pageSize: number): Promise<Contract[]> {
     const offset = (page - 1) * pageSize;
-    const contractResponse =  await this.postgresService.contracts.findMany({where: { userId }, skip: offset, take: pageSize});
+    const contractResponse =  await this.postgresService.contract.findMany({where: { userId }, skip: offset, take: pageSize});
     return contractResponse.map(contract => {
       if (!this.isStringMap(contract.attributes)) throw new BadRequestException("Invalid contract attributes format");
       return { ...contract, attributes: contract.attributes };
@@ -26,7 +26,7 @@ export class ContractsService {
   }
 
   async createContract(contractRequest: ContractRequest): Promise<Contract> {
-    const contractResponse = await this.postgresService.contracts.create({data: {...contractRequest, userId: "1"}});
+    const contractResponse = await this.postgresService.contract.create({data: {...contractRequest, userId: "1"}});
     if (!this.isStringMap(contractResponse.attributes)) throw new BadRequestException("Invalid contract attributes format");
     const contract = { ...contractResponse, attributes: contractResponse.attributes };
     this.contractsGateway.sendContractSet(contract);
@@ -34,7 +34,7 @@ export class ContractsService {
   }
 
   async updateContract(contractRequest: ContractRequest, id: string): Promise<Contract> {
-    const contractResponse = await this.postgresService.contracts.update({where: { id }, data: {...contractRequest, userId: "1"}});
+    const contractResponse = await this.postgresService.contract.update({where: { id }, data: {...contractRequest, userId: "1"}});
     if (!this.isStringMap(contractResponse.attributes)) throw new BadRequestException("Invalid contract attributes format");
     const contract = { ...contractResponse, attributes: contractResponse.attributes };
     this.contractsGateway.sendContractSet(contract);
@@ -42,7 +42,7 @@ export class ContractsService {
   }
 
   async deleteContract(id: string): Promise<void> {
-    await this.postgresService.contracts.delete({ where: { id } });
+    await this.postgresService.contract.delete({ where: { id } });
     this.contractsGateway.sendContractDelete(id);
   }
 
