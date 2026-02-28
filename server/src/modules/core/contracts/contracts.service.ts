@@ -47,6 +47,6 @@ export class ContractsService {
   }
 
   private isStringMap(obj: unknown): obj is { [key: string]: string } {
-    return (typeof obj === "object" && obj !== null && Object.values(obj).every(value => typeof value === "string"));
+    return (typeof obj === "object" && obj !== null && !Array.isArray(obj) && Object.values(obj).every(value => typeof value === "string"));
   }
 }
