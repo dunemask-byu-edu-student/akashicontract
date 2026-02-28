@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "tsx src/main.ts",
+    "start:dev": "tsx watch src/main.ts",
     "test": "jest",
     "build:binary": "./scripts/build-binary.sh",
     "format": "prettier -w src"
