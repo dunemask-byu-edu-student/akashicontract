@@ -4,4 +4,6 @@ l10nCodes:
   - en
 l10nPaths:
   - "*"
-output: []
+output:
+  - { lang: "typescript", dir: "/home/dunemask/Desktop/generatorout/typescript" }
+  - { lang: "flutter", dir: "/home/dunemask/Desktop/generatorout/flutter" }
