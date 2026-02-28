@@ -18,15 +18,6 @@ model ScheduledTask {
     updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
 }
 
-model WorkingState {
-    id         String   @id @default(dbgenerated("pfx_id('wrk_state'::text)"))
-    userId     String
-    branchName String
-    dataType   String // "localizations" | "errors" | etc.
-    data       Json
-    updatedAt  DateTime @default(now()) @updatedAt
-}
-
 model Contract {
     id          String  @id @unique @default(dbgenerated("pfx_id('obj_schem'::text)"))
     userId      String

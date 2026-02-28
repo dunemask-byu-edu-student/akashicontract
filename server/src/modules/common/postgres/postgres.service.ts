@@ -13,10 +13,10 @@ export class PostgresService extends PrismaClient implements OnModuleInit, OnMod
 
   async onModuleInit() {
     LOG.warn("POSTGRES", "Database server currently not connected!");
-    // await this.$connect();
+    await this.$connect();
   }
 
   async onModuleDestroy() {
-    // await this.$disconnect();
+    await this.$disconnect();
   }
 }
