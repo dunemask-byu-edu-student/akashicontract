@@ -22,14 +22,14 @@ export class ContractsService {
       skip: offset,
       take: pageSize,
     });
-    return contractResponse.map((c) => ObjectDefinition.ObjectDefinition.validateSync(c, { disableStackTrace: true }));
+    return contractResponse.map((c) => ObjectDefinition.ObjectDefinition.validateSync(c));
   }
 
   async createContract(
     contractRequest: CObjectDefinition["CreateObjectDefinition"],
   ): Promise<CObjectDefinition["ObjectDefinition"]> {
     const contractResponse = await this.postgresService.contract.create({ data: { ...contractRequest, userId: "1" } });
-    const objDef = await ObjectDefinition.ObjectDefinition.validate(contractResponse, { disableStackTrace: true });
+    const objDef = await ObjectDefinition.ObjectDefinition.validate(contractResponse);
     this.socketService.sendContractSet(objDef);
     return objDef;
   }
@@ -39,7 +39,7 @@ export class ContractsService {
     id: string,
   ): Promise<CObjectDefinition["ObjectDefinition"]> {
     const updatedDef = await this.postgresService.contract.update({ where: { id }, data: { ...data, userId: "1" } });
-    const objDef = await ObjectDefinition.ObjectDefinition.validate(updatedDef, { disableStackTrace: true });
+    const objDef = await ObjectDefinition.ObjectDefinition.validate(updatedDef);
     this.socketService.sendContractSet(objDef);
     return objDef;
   }

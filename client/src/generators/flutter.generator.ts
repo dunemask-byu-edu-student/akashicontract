@@ -9,9 +9,12 @@ const dartConversion: Record<string, string> = {
 } satisfies Record<ObjectAttribute, string>;
 
 export class FlutterGenerator extends ContractGenerator {
+  getFilename(definition: CObjectDefinition["ObjectDefinition"]) {
+    return `${definition.name}.dart`;
+  }
+
   generateContract(definition: CObjectDefinition["ObjectDefinition"]) {
     const fileLines: string[] = [];
-    const filename = `${definition.name}.dart`;
     fileLines.push(`class ${definition.name} {`);
     for (const [key, atrType] of Object.entries(definition.attributes))
       fileLines.push(`  ${key} ${dartConversion[atrType]};`);
@@ -19,6 +22,6 @@ export class FlutterGenerator extends ContractGenerator {
     for (const key of Object.keys(definition.attributes)) fileLines.push(`    required this.${key},`);
     fileLines.push(`  });`);
     fileLines.push(`}`);
-    return { filename, fileData: fileLines.join("\n") };
+    return { filename: this.getFilename(definition), fileData: fileLines.join("\n") };
   }
 }

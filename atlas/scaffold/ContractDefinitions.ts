@@ -35,13 +35,15 @@ export function asPartial<T extends y.ObjectSchema<any>, K extends keyof y.Infer
 }
 
 export const valueRecord = <T extends string>(validValues: T[]) =>
-  y.object().test("valid-attribute-types", "Each attribute value must be 'string'", (value) => {
+  y.object().test("valid-attribute-types", `Each attribute value must be 'string' in ${validValues}`, (value) => {
     if (!value || typeof value !== "object") return false;
     for (const v of Object.values(value)) if (typeof v !== "string" || !validValues.includes(v as T)) return false;
+    return true;
   }) as y.ObjectSchema<Record<string, T>>;
 
 export const keyRecord = <T extends string>(validKeys: T[]) =>
-  y.object().test("valid-attribute-types", "Each attribute key must be 'string'", (value) => {
+  y.object().test("valid-attribute-types", `Each attribute key must be 'string' in ${validKeys}`, (value) => {
     if (!value || typeof value !== "object") return false;
     for (const key of Object.keys(value)) if (typeof key !== "string" || !validKeys.includes(key as T)) return false;
+    return true;
   }) as y.ObjectSchema<Record<T, string>>;
