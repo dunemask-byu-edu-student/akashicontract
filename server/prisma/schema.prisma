@@ -27,4 +27,11 @@ model WorkingState {
     updatedAt  DateTime @default(now()) @updatedAt
 }
 
+model Contract {
+    id          String  @id @unique @default(dbgenerated("pfx_id('obj_schem'::text)"))
+    userId      String
+    name        String
+    attributes  Json
+}
+
 
