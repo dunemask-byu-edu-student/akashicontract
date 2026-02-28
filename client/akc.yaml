@@ -4,3 +4,4 @@ l10nCodes:
   - en
 l10nPaths:
   - "*"
+output: []
