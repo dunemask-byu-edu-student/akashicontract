@@ -5,47 +5,47 @@ import { ResourcePolicyGuard } from "../../../util/nest-extras/resource-policy.g
 import { AtlasPolicyMap } from "@atlas/enums";
 
 @UseGuards(ResourcePolicyGuard([AtlasPolicyMap.IAM_Root.ROOT.SELF]))
-@Controller('contracts')
+@Controller('/api/contracts/objects')
 export class ContractsController {
   constructor(private readonly contractsService: ContractsService) {}
 
-  @Get(':id')
+  @Get('/:id')
   async getContract(
     @Param('id') id: string,
   ): Promise<Contract | null> {
-    return await this.contractsService.getContract(id);
+    return this.contractsService.getContract(id);
   }
 
-  @Get()
+  @Get('/')
   async getContracts(
     @Query('page') page?: string,
     @Query('pageSize') pageSize?: string,
   ): Promise<Contract[]> {
     const currentPage = page ? parseInt(page, 10) : 1;
     const currentPageSize = pageSize ? parseInt(pageSize, 10) : 5;
-    return await this.contractsService.getContracts("1", currentPage, currentPageSize);
+    return this.contractsService.getContracts("1", currentPage, currentPageSize);
   }
 
-  @Post()
+  @Post('/')
   async createContract(
     @Body() body: ContractRequest,
   ): Promise<Contract> {
-    return await this.contractsService.createContract(body);
+    return this.contractsService.createContract(body);
   }
 
-  @Put(':id')
+  @Put('/:id')
   async updateContract(
     @Body() body: ContractRequest,
     @Param('id') id: string,
   ): Promise<Contract> {
-    return await this.contractsService.updateContract(body, id);
+    return this.contractsService.updateContract(body, id);
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   async deleteContract(
     @Param('id') id: string,
   ): Promise<void> {
-    return await this.contractsService.deleteContract(id);
+    return this.contractsService.deleteContract(id);
   }
 
 }
