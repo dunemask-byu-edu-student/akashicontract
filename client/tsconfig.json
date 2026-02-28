@@ -19,8 +19,8 @@
       "@atlas/contracts": ["./src/atlas/contracts/index.ts"],
       // Client Aliass
       "@utils/*": ["./src/utils/*"],
-      "@cli/*": ["./src/cli/*"],
-      "@config": ["./src/config.ts"]
+      "@cli/*": ["./src/config/cli/*"],
+      "@config": ["./src/config/config.ts"]
     },
     "outDir": "build/client"
   },

@@ -1,3 +1,3 @@
-import { intialize } from "@cli/cli-init";
+import { initialize } from "@cli/cli-init";
 
-intialize();
+initialize();

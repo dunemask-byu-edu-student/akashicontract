@@ -3,3 +3,4 @@ export * from "./assets/api.enum";
 export * from "./assets/resources.enum";
 export * from "./assets/localization.enum";
 export * from "./assets/tokens.enum";
+export * from "./assets/object-attributes.enum"
