@@ -33,7 +33,7 @@ import { ReactModule } from "@akc/core/react/react.module";
 
     // Modules
     ContractsModule,
-    
+
     // Distribution Modules
     ReactModule, // Include this at the bottom as it handles redirects from root
   ],

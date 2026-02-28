@@ -2,12 +2,12 @@ import { Module } from "@nestjs/common";
 import { ContractsService } from "./contracts.service";
 import { ContractsController } from "./contracts.controller";
 import { ContractsGateway } from "./contracts.gateway";
-import { PostgresService } from "@akc/modules/common/postgres/postgres.service";
+import { ContractsSocketService } from "./contracts-sockets.service";
 
 @Module({
   imports: [],
   controllers: [ContractsController],
-  providers: [ContractsService, ContractsGateway, PostgresService],
+  providers: [ContractsService, ContractsGateway, ContractsSocketService],
   exports: [ContractsService],
 })
 export class ContractsModule {}
