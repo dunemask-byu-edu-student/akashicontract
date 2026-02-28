@@ -36,7 +36,7 @@ export class ContractsController {
     @Body() body: CObjectDefinition["ObjectDefinition"],
     @Param("id") id: string,
   ): Promise<CObjectDefinition["ObjectDefinition"]> {
-    return this.contractsService.updateContract(body, id);
+    return this.contractsService.updateContract({ ...body, userId: "1" }, id);
   }
 
   @Delete("/:id")
