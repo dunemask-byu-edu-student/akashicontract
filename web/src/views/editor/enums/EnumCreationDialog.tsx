@@ -20,7 +20,7 @@ interface EnumCreationDialogProps {
 }
 
 const yupSchema = y.object({
-  vin: y.string().required("Variable Name required!").matches(vinRegex),
+  vin: y.string().required("Variable name required!").matches(vinRegex),
 });
 
 type FormData = y.InferType<typeof yupSchema>;
@@ -37,7 +37,7 @@ export default function EnumCreationDialog(props: EnumCreationDialogProps) {
     // Attach details
     const data: ACREnum = {
       vin: `${ACRefVinPrefix.enum}${values.vin}`,
-      values: ["VALUE_1", "VALUE_3", "va"],
+      values: ["empty", "empty", "empty"],
     };
     await upsertDelta({
       target: data.vin,
