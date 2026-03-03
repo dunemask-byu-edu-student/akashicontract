@@ -6,6 +6,7 @@ import CONFIG from "./config";
 import { ChakraProvider } from "@chakra-ui/react/styled-system";
 import { CHAKRA_SYSTEM } from "./utils/chakra-system";
 import { DraftProvider } from "./ctx/DraftContext";
+import { CollectionProvider } from "./ctx/CollectionContext";
 
 export default function App() {
   return (
@@ -13,9 +14,11 @@ export default function App() {
       <Toaster />
       <BrowserRouter basename={CONFIG.ENV.BASE_URL}>
         <DraftProvider>
-          <InitProvider>
-            <RouterPortal />
-          </InitProvider>
+          <CollectionProvider>
+            <InitProvider>
+              <RouterPortal />
+            </InitProvider>
+          </CollectionProvider>
         </DraftProvider>
       </BrowserRouter>
     </ChakraProvider>

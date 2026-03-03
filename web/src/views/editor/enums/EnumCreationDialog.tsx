@@ -7,12 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as y from "yup";
 import { VStack } from "@chakra-ui/react/stack";
 import { Input } from "@chakra-ui/react/input";
-import { useDraftContext } from "@akc/ui/ctx/DraftContext";
 import { vinRegex } from "@akc/parser/ParserCommon";
-import { ACRefVinPrefix, ACREnum } from "@akc/parser/elements/ElementsCommon";
-import { ACRecordKind } from "@akc/parser/collection/CollectionCommon";
-import { ACDeltaOperation } from "@akc/parser/deltas/DeltaCommon";
-import { ElementCodecs } from "@akc/parser/elements/ElementCodecs";
+import { useCollectionContext } from "@akc/ui/ctx/CollectionContext";
 
 interface EnumCreationDialogProps {
   open: boolean;
@@ -24,29 +20,29 @@ const yupSchema = y.object({
 });
 
 type FormData = y.InferType<typeof yupSchema>;
-const elementCodecs = new ElementCodecs();
 
 export default function EnumCreationDialog(props: EnumCreationDialogProps) {
-  const { upsertDelta } = useDraftContext();
+  const { refresh } = useCollectionContext();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: yupResolver(yupSchema), defaultValues: { vin: "MyEnum" } });
+
   async function onSubmit(values: FormData) {
-    // Attach details
-    const data: ACREnum = {
-      vin: `${ACRefVinPrefix.enum}${values.vin}`,
-      values: ["empty", "empty", "empty"],
-    };
-    await upsertDelta({
-      target: data.vin,
-      kind: ACRecordKind.ENUM,
-      op: ACDeltaOperation.SET,
-      payload: elementCodecs.encodeEnum(data),
-    });
+    try {
+      await fetch("/api/contracts/objects", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: values.vin, attributes: {} }),
+      });
+      await refresh();
+    } catch (err) {
+      console.error("Failed to create enum:", err);
+    }
     props.toggle();
   }
+
   return (
     <Dialog.Root open={props.open} onOpenChange={props.toggle} size="md" placement="center">
       <Portal>
@@ -58,12 +54,12 @@ export default function EnumCreationDialog(props: EnumCreationDialogProps) {
                 <CloseButton onClick={props.toggle} _hover={{ bg: "brand.surfaceLighter" }} color="inherit" />
               </Dialog.CloseTrigger>
               <Dialog.Header>
-                <Dialog.Title w="100%"> Create New Enum </Dialog.Title>
+                <Dialog.Title w="100%">Create New Object</Dialog.Title>
               </Dialog.Header>
               <Dialog.Body>
                 <VStack align="stretch" gap="1rem">
                   <Field.Root invalid={!!errors.vin}>
-                    <Field.Label> Enum VIN</Field.Label>
+                    <Field.Label>Object Name</Field.Label>
                     <Input
                       {...register("vin")}
                       type="text"
@@ -78,7 +74,13 @@ export default function EnumCreationDialog(props: EnumCreationDialogProps) {
                 </VStack>
               </Dialog.Body>
               <Dialog.Footer>
-                <Button bg="brand.highlight" type="submit">
+                <Button
+                  bg="brand.highlight"
+                  color="brand.highlightText"
+                  _hover={{ bg: "brand.highlight", opacity: 0.85 }}
+                  type="submit"
+                  loading={isSubmitting}
+                >
                   Create
                 </Button>
               </Dialog.Footer>

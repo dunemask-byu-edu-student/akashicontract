@@ -23,7 +23,14 @@ export default function EditorHeader(props: {
         </Text>
       </Box>
       {!!props.button && (
-        <Button my="auto" bg="brand.highlight" ml="auto" onClick={props.button.onButtonClick}>
+        <Button
+          my="auto"
+          bg="brand.highlight"
+          color="brand.highlightText"
+          _hover={{ bg: "brand.highlight", opacity: 0.85 }}
+          ml="auto"
+          onClick={props.button.onButtonClick}
+        >
           <PlusIcon />
           {props.button.buttonText}
         </Button>

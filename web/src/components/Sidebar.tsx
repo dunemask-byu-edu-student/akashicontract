@@ -14,7 +14,7 @@ const enlargedWidth = "16rem";
 const condensedWidth = "5rem";
 const editorLinks = {
   // "/editor/objects": { title: "Objects", icon: <FileText /> },
-  "/editor/enums": { title: "Enums", icon: <Hash /> },
+  "/editor/enums": { title: "Objects", icon: <FileText /> },
   // "/editor/localization": { title: "Localization", icon: <Languages /> },
   // "/editor/errors": { title: "Errors", icon: <MessageSquareWarning /> },
   "/editor/versions": { title: "Versions", icon: <Download /> },

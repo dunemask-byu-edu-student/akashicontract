@@ -23,6 +23,8 @@ model Contract {
     userId      String
     name        String
     attributes  Json
+
+    @@unique([userId, name])
 }
 
 
