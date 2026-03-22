@@ -1,6 +1,7 @@
 {
-  "name": "Akashi Contracts",
+  "name": "AkashiContracts",
   "short_name": "AKC",
+  "description": "Realtime, language-agnostic schema and contract management. Define once, generate type-safe code for TypeScript, Flutter, Java, Go, Python, and more.",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",
@@ -27,8 +28,8 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#00add4",
-  "background_color": "#373737",
+  "theme_color": "#4da6ef",
+  "background_color": "#0f1117",
   "display": "standalone",
   "start_url": "/"
 }

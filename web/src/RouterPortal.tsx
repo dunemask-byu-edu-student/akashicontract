@@ -10,13 +10,17 @@ import VersionEditor from "./views/editor/versions/VersionEditor";
 import { SidebarLayout } from "./components/Sidebar";
 import { SidebarProvider } from "./ctx/SidebarContext";
 import Home from "./views/Home";
+import About from "./views/About";
 
 declare type Portal = { path: string; component: ReactNode };
 
 const authenticatedPortals: Portal[] = [];
 
 // Raw Routes
-const rawPortals: Portal[] = [{ path: "/home", component: <Home /> }];
+const rawPortals: Portal[] = [
+  { path: "/home", component: <Home /> },
+  { path: "/about", component: <About /> },
+];
 
 const sidebarPortals: Portal[] = [
   // { path: "/editor/objects", component: <ObjectEditor /> },

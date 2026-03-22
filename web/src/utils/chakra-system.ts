@@ -2,10 +2,10 @@ import { defaultConfig } from "@chakra-ui/react/preset";
 import { createSystem } from "@chakra-ui/react/styled-system";
 
 const branding = {
-  bg: "#373737",
+  bg: "#0f1117",
   darkMode: true,
   color: "#EEEEEE",
-  highlight: "#00add4",
+  highlight: "#4da6ef",
 };
 
 function hexToHsl(hex: string): [number, number, number] {
