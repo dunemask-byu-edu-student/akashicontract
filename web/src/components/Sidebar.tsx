@@ -52,7 +52,7 @@ export default function Sidebar() {
           </Flex>
         </Conditional>
         <Conditional if={condenseUi}>
-          <img src="/akashicontract/favicons/favicon.svg" />
+          <img src={`${import.meta.env.BASE_URL}favicons/favicon.svg`} />
         </Conditional>
       </Flex>
       <Box h="100%" p="1rem">

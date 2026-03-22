@@ -1,14 +1,14 @@
 import { Box, Flex, Image, Text, Heading, SimpleGrid, Badge, List, Carousel, Link, IconButton } from "@chakra-ui/react";
-import { Layers, RefreshCcw, GitMerge, Globe, Zap, ArrowLeft, ArrowRight, LucideIcon } from "lucide-react";
+import { Layers, RefreshCcw, GitMerge, Globe, Zap, ArrowLeft, ArrowRight, LucideIcon, Play } from "lucide-react";
 import { ReactNode } from "react";
 
 const carouselImages = [
-  "/akashicontract/marketing/demo/Enums.png",
-  "/akashicontract/marketing/demo/Errors.png",
-  "/akashicontract/marketing/demo/Exports.png",
-  "/akashicontract/marketing/demo/Locales.png",
-  "/akashicontract/marketing/demo/Objects.png",
-  "/akashicontract/marketing/demo/Roles.png",
+  `${import.meta.env.BASE_URL}marketing/demo/Enums.png`,
+  `${import.meta.env.BASE_URL}marketing/demo/Errors.png`,
+  `${import.meta.env.BASE_URL}marketing/demo/Exports.png`,
+  `${import.meta.env.BASE_URL}marketing/demo/Locales.png`,
+  `${import.meta.env.BASE_URL}marketing/demo/Objects.png`,
+  `${import.meta.env.BASE_URL}marketing/demo/Roles.png`,
 ];
 
 function FeatureCard(props: { icon: LucideIcon; title: string; children: ReactNode[] | ReactNode }) {
@@ -42,7 +42,7 @@ export default function Home() {
       {/* HERO */}
       <Flex direction={{ base: "column", md: "row" }} align="center" gap="3rem">
         <Image
-          src="/akashicontract/favicons/web-app-manifest-512x512.png"
+          src={`${import.meta.env.BASE_URL}favicons/web-app-manifest-512x512.png`}
           w="220px"
           h="220px"
           borderRadius="2xl"
@@ -80,6 +80,25 @@ export default function Home() {
               <Text fontSize="sm">Versioned schemas</Text>
             </Flex>
           </Flex>
+
+          <Link
+            href="https://drive.google.com/file/d/1YUvENH3aL9M9hgdqGw1pmV2ErLH_1PN6/view?usp=sharing"
+            display="inline-flex"
+            alignItems="center"
+            gap="0.5rem"
+            mt="1rem"
+            fontSize="sm"
+            px="1.25rem"
+            py="0.6rem"
+            borderRadius="md"
+            bg="brand.highlight"
+            color="white"
+            fontWeight="semibold"
+            _hover={{ opacity: 0.9 }}
+          >
+            <Play size={16} />
+            Watch the demo
+          </Link>
         </Box>
       </Flex>
       {/* FEEDBACK CTA */}

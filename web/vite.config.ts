@@ -25,6 +25,6 @@ export default () => {
     build: {
       outDir: "./build/frontend",
     },
-    base: "/akashicontract/",
+    base: process.env.AKC_VITE_BASE_PATH ?? "/",
   });
 };
