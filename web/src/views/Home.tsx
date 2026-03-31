@@ -267,7 +267,7 @@ export default function Home() {
             Help us solve <strong>your</strong> data structure problem.
           </Text>
           <Link
-            href="https://forms.gle/CM2qu9gtrmsJYr216"
+            href="https://forms.gle/xpYNgME7Us57jcV17"
             fontSize="sm"
             px="1.25rem"
             py="0.6rem"
